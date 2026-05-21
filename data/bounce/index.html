@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bounce</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="view"></canvas>
+
+  <div id="login" class="overlay">
+    <h1>BOUNCE</h1>
+    <p class="sub">Local multiplayer hosted by M5Stack Core2</p>
+    <label>Name
+      <input id="name" maxlength="16" autocomplete="off"
+             autocapitalize="characters" placeholder="PLAYER">
+    </label>
+    <button id="join">Enter</button>
+    <p id="status" class="status"></p>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="hudbar">
+      <span id="hudTimer">--:--</span>
+      <span id="hudScore">0</span>
+    </div>
+    <div id="scoreboard"></div>
+    <div id="centerMsg" class="centermsg"></div>
+    <div id="hint">drag to move your paddle</div>
+    <div id="diag"></div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

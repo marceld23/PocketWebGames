@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Space Dogfight</title>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="view"></canvas>
+  <canvas id="hud2d"></canvas>
+
+  <!-- Login overlay -->
+  <div id="login" class="overlay">
+    <h1>SPACE DOGFIGHT</h1>
+    <p class="sub">Local multiplayer hosted by M5Stack Core2</p>
+    <label>Callsign
+      <input id="name" maxlength="16" autocomplete="off"
+             autocapitalize="characters" placeholder="PILOT">
+    </label>
+    <button id="join">Launch</button>
+    <p id="status" class="status"></p>
+  </div>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hidden">
+    <div class="hudbar">
+      <span id="hudHp">HP 100</span>
+      <span id="hudTimer">--:--</span>
+      <span id="hudScore">0</span>
+    </div>
+    <div id="scoreboard"></div>
+    <div id="centerMsg" class="centermsg"></div>
+    <div id="diag"></div>
+
+    <!-- Left virtual joystick -->
+    <div id="stick" class="touch">
+      <div id="stickKnob"></div>
+    </div>
+    <!-- Right action buttons -->
+    <button id="btnFire"  class="touch action">FIRE</button>
+    <button id="btnBoost" class="touch action boost">BOOST</button>
+  </div>
+
+  <script src="/shared/three.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

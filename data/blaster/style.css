@@ -1,0 +1,91 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+    margin: 0; padding: 0; height: 100%; overflow: hidden;
+    background: #05080f; color: #cfe;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    touch-action: none; user-select: none; -webkit-user-select: none;
+}
+
+#view { display: block; width: 100vw; height: 100vh; background: #05080f; }
+
+.hidden { display: none !important; }
+
+/* ---- Login overlay ---- */
+.overlay {
+    position: fixed; inset: 0; z-index: 10;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.8em; background: rgba(2, 8, 18, 0.92); text-align: center; padding: 1.5em;
+}
+.overlay h1 {
+    margin: 0; font-size: 2.4em; letter-spacing: 0.18em; color: #ffcc44;
+    text-shadow: 0 0 18px rgba(255, 170, 60, 0.5);
+}
+.overlay .sub { margin: 0; color: #8ab; font-size: 0.9em; }
+.overlay label { display: flex; flex-direction: column; gap: 0.3em; font-size: 0.85em; color: #8ab; }
+.overlay input {
+    font: inherit; font-size: 1.4em; text-align: center; text-transform: uppercase;
+    padding: 0.4em 0.6em; width: 7em; border: 2px solid #2a5; border-radius: 8px;
+    background: #08121f; color: #dff; outline: none;
+}
+.overlay button {
+    font: inherit; font-size: 1.3em; letter-spacing: 0.1em; padding: 0.6em 1.6em;
+    border: none; border-radius: 10px; background: #2a8; color: #021;
+    font-weight: 700; cursor: pointer;
+}
+.status { min-height: 1.2em; color: #f86; font-size: 0.9em; }
+
+/* ---- HUD ---- */
+.hudbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 5;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.5em 0.9em; font-size: 1.1em; font-weight: 700;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0));
+    pointer-events: none; text-shadow: 0 1px 3px #000;
+}
+#hudTimer { color: #ffd24a; }
+#hudStats { color: #9cf; }
+#hudScore { color: #fff; }
+
+#scoreboard {
+    position: fixed; top: 2.6em; right: 0.6em; z-index: 5;
+    min-width: 7em; pointer-events: none; font-size: 0.85em;
+}
+#scoreboard .row {
+    display: flex; justify-content: space-between; gap: 0.8em;
+    padding: 1px 6px; background: rgba(0,0,0,0.35); border-radius: 3px; margin-bottom: 2px;
+}
+#scoreboard .row.me { background: rgba(40, 180, 120, 0.35); }
+
+.centermsg {
+    position: fixed; top: 38%; left: 0; right: 0; z-index: 6; text-align: center;
+    font-size: 2em; font-weight: 800; letter-spacing: 0.08em; color: #fff;
+    text-shadow: 0 0 16px rgba(0,0,0,0.9); pointer-events: none;
+}
+
+#diag {
+    position: fixed; left: 4px; top: 2.6em; z-index: 5;
+    font-size: 10px; line-height: 1.3; color: #6a8; white-space: pre;
+    pointer-events: none; text-shadow: 0 1px 2px #000;
+}
+
+/* ---- Touch controls ---- */
+.touch { position: fixed; bottom: 0; z-index: 7; touch-action: none; }
+#stick {
+    left: 4vw; bottom: 5vh; width: 38vw; max-width: 200px; aspect-ratio: 1;
+    border-radius: 50%; background: rgba(120, 200, 255, 0.10);
+    border: 2px solid rgba(120, 200, 255, 0.30);
+}
+#stickKnob {
+    position: absolute; left: 50%; top: 50%; width: 38%; aspect-ratio: 1;
+    margin: -19% 0 0 -19%; border-radius: 50%;
+    background: rgba(140, 210, 255, 0.55); border: 2px solid rgba(200, 240, 255, 0.7);
+}
+.action {
+    right: 6vw; bottom: 9vh; width: 22vw; max-width: 120px; aspect-ratio: 1;
+    border-radius: 50%; border: none; color: #210; font: inherit; font-weight: 800;
+    font-size: 1.1em; letter-spacing: 0.05em;
+    background: radial-gradient(circle at 35% 30%, #ffd24a, #e07a1c);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+}
+.action:active { transform: scale(0.94); }
