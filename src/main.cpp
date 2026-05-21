@@ -1,7 +1,7 @@
 // PocketWebGames - M5Stack Core2 host firmware.
 // Wi-Fi SoftAP + HTTP + WebSocket match server hosting several browser games
 // (one at a time, chosen from the on-device launcher). The display is the host
-// console. See plan.md for the architecture and protocol.
+// console. See architecture.md for the architecture and protocol.
 
 #include <Arduino.h>
 #include <M5Core2.h>

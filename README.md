@@ -142,7 +142,7 @@ PocketWebGames/
   test/               Unit tests
   mock_server.py      PC mock of the Core2 for testing without hardware
   README.md           This file
-  plan.md             Phased roadmap and protocol notes
+  architecture.md     Architecture & protocol reference
   Agents.md           Guidance for AI coding agents on this repo
 ```
 

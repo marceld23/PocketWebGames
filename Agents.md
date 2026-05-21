@@ -14,8 +14,8 @@ browser games (one at a time, chosen from an on-device launcher). Players use
 phones/tablets; each game renders in their browser. Current games: Space
 Dogfight, Blaster, Trails, 3D Racing, Snake Arena, Bounce.
 
-See [README.md](README.md) for the overview and [plan.md](plan.md) for the
-phased roadmap and protocol.
+See [README.md](README.md) for the overview and [architecture.md](architecture.md) for the
+current architecture and protocol.
 
 ## Hardware target
 
@@ -90,7 +90,7 @@ test/               Unit tests
 If you add web assets, place them in the relevant `data/<game>/` folder (or
 `data/shared/` if reused) so `pio run -t uploadfs` ships them.
 
-## Multi-game host (see plan.md Phase 8)
+## Multi-game host (see architecture.md)
 
 The Core2 hosts several games but runs exactly **one at a time**. Boot ->
 launcher (touch list); pick a game -> it becomes the active game and its
@@ -142,7 +142,7 @@ It is a **test mock**, not a second source of truth: it deliberately
 implements only enough of the rules (hit resolution, asteroid HP, scoring,
 respawn, round timer) to exercise the client. The authoritative rules live
 in the C++ firmware. If you change the protocol or the wire format, update
-`mock_server.py` **and** the firmware **and** [plan.md](plan.md) together so
+`mock_server.py` **and** the firmware **and** [architecture.md](architecture.md) together so
 they stay in lockstep — the PRNG port in `mulberry32`/`gen_asteroids` must
 keep matching `data/game.js` or arenas diverge.
 
@@ -160,12 +160,12 @@ library, so `uv run mock_server.py` needs no extra install.
 - Introducing a JS bundler/build step (Vite, webpack, esbuild).
 - Switching from LittleFS to SPIFFS or vice versa.
 - Increasing `server_tick`, `client_send_rate`, or `max_players` past the
-  values in [plan.md](plan.md).
+  values in [architecture.md](architecture.md).
 - Adding any dependency on internet access at runtime.
 
 ## Things you can do without asking
 
-- Implement the next unimplemented step from [plan.md](plan.md).
+- Implement small, in-scope improvements consistent with [architecture.md](architecture.md).
 - Add small C++ helpers, refactor for readability, fix bugs.
 - Add or improve serial logging behind a compile-time flag.
 - Tune Three.js rendering (geometry simplification, frustum culling).
@@ -176,7 +176,7 @@ library, so `uv run mock_server.py` needs no extra install.
 - Builds cleanly with `pio run` for the `m5stack-core2` env.
 - Web assets, if changed, are placed in `data/` and uploaded via
   `pio run -t uploadfs`.
-- New protocol fields/messages are documented in [plan.md](plan.md).
+- New protocol fields/messages are documented in [architecture.md](architecture.md).
 - Manual smoke test described, even if the agent cannot run it on real
   hardware: which screen on the Core2 should show what, what the browser
   should look like, expected console output.
