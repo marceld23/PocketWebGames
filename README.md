@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/pocketwebgames_logo.png" alt="PocketWebGames" width="260">
+</p>
+
 # PocketWebGames
 
 A pocket-sized **local multiplayer game console** hosted by an **M5Stack
