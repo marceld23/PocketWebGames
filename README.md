@@ -20,6 +20,14 @@ Browser        Browser        Browser        Browser
         Wi-Fi AP + Web server + Game server + Launcher
 ```
 
+## Why
+
+The idea behind PocketWebGames is simple: **how do you build online-feeling
+multiplayer games for kids that have no ads, no accounts, and no tracking?**
+That is the direction the project takes — a local Wi-Fi only, no logins, no
+data leaving the room, no shop, no ads. Pull a Core2 out of a pocket, hand out
+the QR, and play together.
+
 ## Games
 
 | Game | Style | Players | Win condition |
